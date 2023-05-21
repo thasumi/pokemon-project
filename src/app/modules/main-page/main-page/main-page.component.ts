@@ -12,6 +12,7 @@ export class MainPageComponent implements OnInit {
 
   resourceList$: Observable<IPokemon[]>[] = [];
   lowerInterval: number = 1;
+  showSpinner: boolean = false;
   pokemonList: IPokemon[] = [];
   constructor(private pokeService: PokemonService) {
   }
@@ -34,6 +35,8 @@ export class MainPageComponent implements OnInit {
   }
 
   createResourceList() {
+    this.resourceList$ = [];
+    this.showSpinner = true;
     for (let i = this.lowerInterval; i < this.lowerInterval + 10; i++) {
       this.resourceList$.push(this.pokeService.getPokemon(i));
     }
@@ -41,6 +44,7 @@ export class MainPageComponent implements OnInit {
       map(response => response.reduce((all, item) => all.concat(item), []))
     ).subscribe(result => {
       this.pokemonList = result;
+      this.showSpinner = false;
     })
   }
 }
