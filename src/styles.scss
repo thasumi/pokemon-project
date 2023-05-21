@@ -31,3 +31,19 @@ body {
         font-weight: 700;
     }
 }
+
+.button {
+    background: #EA686D;
+    box-shadow: 0px 4px 15px #EA686D;
+    border-radius: 0px 5px 5px 0px;
+    font-family: 'Nunito';
+    font-style: normal;
+    line-height: 30px;
+    color: #FFFFFF;
+    font-size: 22px;        
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}

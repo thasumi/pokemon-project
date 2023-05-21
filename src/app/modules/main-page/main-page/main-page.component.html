@@ -1,17 +1,21 @@
 <div class="container-main">
     <div>
-        <p class="tittle-main-page-container text-blue tittle-main-style">
-            Explore o mundo dos 
-            <span class="red-word">Pokémons</span>
-        </p>
-        <p class="subtittle-main-page-container text-blue small">
-            Descubra todas as espécies de Pokémons
-        </p>
+        <div class="tittle-search-container">
+            <p class="tittle-main-page-container text-blue tittle-main-style">
+                Explore o mundo dos
+                <span class="red-word">Pokémons</span>
+            </p>
+            <p class="subtittle-main-page-container text-blue small">
+                Descubra todas as espécies de Pokémons
+            </p>
+            <div class="search-container">
+                <app-search-bar></app-search-bar>
+            </div>
+        </div>
     </div>
     <div class="card-grid">
         <div class="text-blue medium">Pokedéx</div>
         <app-base-card *ngFor="let pokemon of pokemonList" [pokemon]="pokemon">
         </app-base-card>
     </div>
-
 </div>
