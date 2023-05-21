@@ -1,0 +1,38 @@
+.container-main {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.card-grid {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    column-gap: 32px;
+    row-gap: 23px;
+}
+
+.card-grid div {
+    grid-row: 1;
+    grid-column: 1/-1;
+}
+
+.tittle-main-page-container {
+    width: 25%;
+    margin-left: 1%;
+    margin-top: 0;
+}
+
+.subtittle-main-page-container {
+    margin-left: 1%;
+    margin-top: 0;
+}
+
+.tittle-main-style {
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.red-word {
+    color: #EA686D
+}

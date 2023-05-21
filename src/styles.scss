@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap'); 
+
+body {
+    background: linear-gradient(180deg, #EFF4FA 0%, rgba(239, 244, 250, 0) 102.84%);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.text-blue {
+    font-family: 'Nunito';
+    font-style: normal;
+    line-height: 30px;
+    color: #2F3E77;
+    &.extra-small {
+        font-size: 22px;
+        font-weight: 700;
+    }
+    &.small {
+        font-size: 25px;
+        font-weight: 400;
+    }
+    &.medium {
+        font-size: 30px;        
+        font-weight: 700;
+    }
+    &.large {
+        font-size: 55px;
+        font-weight: 700;
+    }
+}
