@@ -1,0 +1,77 @@
+.container-main {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.information-container {
+    width: 50%;
+}
+
+.margin-bottom {
+    margin-bottom: 5%;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.margin-bottom-small {
+    margin-bottom: 2%;
+}
+
+.type-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.margin-left {
+    margin-left: 2%
+}
+
+.elipse-image {
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.img-details-container {
+    width: 50%;
+    text-align: center;
+}
+
+.details-info-image-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.progress,
+.progress-bar {
+    box-shadow: none;
+    min-height: 21px;
+    display: flex;
+    font-size: 0.8rem;
+    flex-direction: row;
+    align-items: center;
+    background: black;
+    border-radius: 2px;
+}
+
+.progress-bar {
+    padding: 2px 10px;
+    background-color: blue;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.status-container {
+    width: 10%;
+}
+
+.status-bar-container {
+    width: 30%;
+}

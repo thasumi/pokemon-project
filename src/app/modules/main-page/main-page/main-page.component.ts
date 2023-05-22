@@ -15,6 +15,7 @@ export class MainPageComponent implements OnInit {
   showSpinner: boolean = false;
   pokemonList: IPokemon[] = [];
   constructor(private pokeService: PokemonService) {
+    this.pokeService.getlag();
   }
 
   ngOnInit(): void {

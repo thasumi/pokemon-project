@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './modules/navegation/header/header.component';
 
 const routes: Routes = [
-  { path: 'home', loadChildren: () => import('./modules/main-page/main-page.module').then(m => m.MainPageModule)},
+  { path: '', loadChildren: () => import('./modules/main-page/main-page.module').then(m => m.MainPageModule)},
+  { path: 'details', loadChildren: () => import('./modules/details-page/details-page.module').then(m => m.DetailsPageModule)}
 ];
 
 @NgModule({

@@ -16,3 +16,23 @@ export interface ISprite {
         }
     }
 }
+
+export interface IPokemonDetails {
+    name: string;
+    id: number;
+    types: [{
+        "type":{
+            name: string;
+        }
+    }];
+    stats:[{
+        base_stat: number;
+        stat:{
+            name: string;
+        }
+    }];
+    sprites: ISprite;
+    height: number;
+    weight: number;
+
+}

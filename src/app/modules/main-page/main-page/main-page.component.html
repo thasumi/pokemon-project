@@ -1,5 +1,5 @@
 <div class="container-main">
-    <div class="flex-space">
+    <div class="flex-space-start">
         <div class="tittle-search-container">
             <p class="tittle-main-page-container text-blue tittle-main-style">
                 Explore o mundo dos
@@ -14,20 +14,18 @@
 
         </div>
         <div>
-            <img src="/assets/images/blastoise-face.svg" class="pokemon-face-img">
-            <img src="/assets/images/squirtle-face.svg" class="pokemon-face-img">
-            <img src="/assets/images/pikachu-face.svg" class="pokemon-face-img">
+            <img src="/assets/images/pokemon-faces.svg" class="pokemon-face-img">
         </div>
     </div>
     <div class="pokeball-spinner" *ngIf="showSpinner">
         <div class="pokeball"></div>
     </div>
     <div class="card-grid" *ngIf="!showSpinner">
-        <div class="flex-space">
+        <div class="flex-space-end">
             <div class="text-blue medium">Pokedéx</div>
             <div>
-                <img class="pointer" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemon()">
-                <img class="pointer" src="/assets/images/arrow-right.svg" (click)="getNextPokemon()">
+                <img class="pointer arrow-button" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemon()">
+                <img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemon()">
             </div>
         </div>
         <app-base-card *ngFor="let pokemon of pokemonList" [pokemon]="pokemon">

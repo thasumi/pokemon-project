@@ -1,1 +1,82 @@
-<p>details-page works!</p>
+<div class="container-main">
+        <div class="details-info-image-container ">
+                <div class="information-container">
+                        <div class="text-blue medium-large margin-bottom">{{pokemon?.name | titlecase}}</div>
+                        <div class="margin-bottom flex-space-between">
+                                <div class="text-blue-simple extra-small-weigth400-22px">Cod: #{{pokemon?.id}}</div>
+                                <div class="type-container">
+                                        <span class="text-blue-simple extra-small-weigth400-22px margin-left">Tipo:
+                                        </span>
+                                        <span class="type-tag margin-left" [ngClass]="[type.type.name]"
+                                                *ngFor="let type of pokemon?.types">{{type.type.name |
+                                                titlecase}}</span>
+                                </div>
+                        </div>
+                        <div class="text-blue small margin-bottom-small ">
+                                Descrição
+                        </div>
+                        <div class="text-blue-simple extra-small-weigth600 margin-bottom">Charmeleon destrói seus
+                                oponentes sem
+                                pena com suas
+                                garras
+                                afiadas. Torna-se agressivo quando encontra um oponente forte e então a chama na ponta
+                                da sua
+                                cauda
+                                queima intensamente em uma cor azulada."
+                        </div>
+                        <div class="text-blue small margin-bottom-small ">
+                                Informações
+                        </div>
+                        <div class="flex-space-between">
+                                <div class="text-blue-simple extra-medium-weigth600-18px">
+                                        Altura:
+                                </div>
+                                <div class="text-blue-simple extra-medium-weigth600-18px">
+                                        {{pokemon?.height! * 10}}cm
+                                </div>
+                        </div>
+                        <div class="flex-space-between">
+                                <div class="text-blue-simple extra-medium-weigth600-18px">
+                                        Peso:
+                                </div>
+                                <div class="text-blue-simple extra-medium-weigth600-18px margin-bottom">
+                                        {{pokemon?.weight! / 10}}kg
+                                </div>
+                        </div>
+                        <div class="details-info-image-container">
+                                <div class="status-container">
+                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
+                                                Vida
+                                        </div>
+                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
+                                                Defesa
+                                        </div>
+                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
+                                                Velocidade
+                                        </div>
+                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
+                                                Ataque
+                                        </div>
+                                </div>
+                                <div class="status-bar-container">
+                                        <div class="progress margin-left margin-bottom-small">
+                                                <span class="progress-bar" [ngStyle]="width:(pokemon.)"></span>
+                                        </div>
+                                        <div class="progress margin-left margin-bottom-small">
+                                                <div class="progress-bar" style="width:40%"></div>
+                                        </div>
+                                        <div class="progress margin-left margin-bottom-small">
+                                                <div class="progress-bar" style="width:20%"></div>
+                                        </div>
+                                        <div class="progress margin-left margin-bottom-small">
+                                                <div class="progress-bar" style="width:10%"></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+                <div class="img-details-container">
+                        <img class="elipse-image" src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+                </div>
+        </div>
+</div>

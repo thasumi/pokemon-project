@@ -1,5 +1,5 @@
 .container-main {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -51,7 +51,7 @@
 
 
 .pokemon-face-img {
-    width: 30%;
+    width: 110%;
 }
 
 .pokemon-faces {
@@ -59,17 +59,20 @@
     display: inline-block;
 }
 
-.flex-space {
+.flex-space-start {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.pointer {
-    &:hover {
-        cursor: pointer;
-    }
+.flex-space-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
 }
+
 
 .pokeball-spinner {
     display: flex;
