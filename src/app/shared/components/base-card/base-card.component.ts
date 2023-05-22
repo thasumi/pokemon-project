@@ -22,7 +22,7 @@ export class BaseCardComponent implements OnInit {
   }
 
   pokemonDetails(id: number) {
-    this.pokeService.setSelectedPokemon(this.pokemon!);
+    this.pokeService.setSelectedPokemon(this.pokemon!)
     this.router.navigate(['/details', id]);
   }
 }

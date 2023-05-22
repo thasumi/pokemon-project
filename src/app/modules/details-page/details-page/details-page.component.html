@@ -43,33 +43,35 @@
                                         {{pokemon?.weight! / 10}}kg
                                 </div>
                         </div>
-                        <div class="details-info-image-container">
-                                <div class="status-container">
-                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
-                                                Vida
+                        <div class="test">
+                                <div class="stats-grid">
+                                        <div class="stats-display-column">
+                                                <span class="text-blue-simple extra-small-weigth600">
+                                                        Vida
+                                                </span>
+                                                <span class="text-blue-simple extra-small-weigth600">
+                                                        Defesa
+                                                </span>
+                                                <span class="text-blue-simple extra-small-weigth600 ">
+                                                        Velocidade
+                                                </span>
+                                                <span class="text-blue-simple extra-small-weigth600">
+                                                        Ataque
+                                                </span>
                                         </div>
-                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
-                                                Defesa
-                                        </div>
-                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
-                                                Velocidade
-                                        </div>
-                                        <div class="text-blue-simple extra-small-weigth600 margin-bottom-small">
-                                                Ataque
-                                        </div>
-                                </div>
-                                <div class="status-bar-container">
-                                        <div class="progress margin-left margin-bottom-small">
-                                                <span class="progress-bar" [ngStyle]="width:(pokemon.)"></span>
-                                        </div>
-                                        <div class="progress margin-left margin-bottom-small">
-                                                <div class="progress-bar" style="width:40%"></div>
-                                        </div>
-                                        <div class="progress margin-left margin-bottom-small">
-                                                <div class="progress-bar" style="width:20%"></div>
-                                        </div>
-                                        <div class="progress margin-left margin-bottom-small">
-                                                <div class="progress-bar" style="width:10%"></div>
+                                        <div class="progress-bar-container stats-display-column">
+                                                <div class="progress">
+                                                        <div class="progress-bar hp" [ngStyle]="{'width':((statsHp/255)*100) + '%'}"></div>
+                                                </div>
+                                                <div class="progress">
+                                                        <div class="progress-bar defense" [ngStyle]="{'width':((statsDef/230)*100) + '%'}"></div>
+                                                </div>
+                                                <div class="progress">
+                                                        <div class="progress-bar speed" [ngStyle]="{'width':((statsSpeed/200)*100) + '%'}"></div>
+                                                </div>
+                                                <div class="progress">
+                                                        <div class="progress-bar attack" [ngStyle]="{'width':((statsAttack/181)*100) + '%'}"></div>
+                                                </div>
                                         </div>
                                 </div>
                         </div>

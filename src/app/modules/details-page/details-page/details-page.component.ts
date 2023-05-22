@@ -12,6 +12,10 @@ import { IPokemon, IPokemonDetails } from 'src/app/shared/models/pokemonModel';
 export class DetailsPageComponent {
   id: number = 0;
   pokemon: IPokemonDetails | null = null;
+  statsHp: number = 0;
+  statsAttack: number = 0;
+  statsSpeed: number = 0;
+  statsDef: number = 0;
 
   constructor(
     private pokeService: PokemonService,
@@ -22,13 +26,32 @@ export class DetailsPageComponent {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.pokeService.getAll();
     this.pokeService.getPokemon(this.id).subscribe(res => {
       this.pokemon = res as any;
+      this.getStat();
     })
 
   }
-  //FAZER FUNÇÃO PARA PEGAR STATUS
+
+getStat() {
+  for(let i=0; i < this.pokemon!.stats.length; i++) {
+    switch(this.pokemon?.stats[i].stat.name){
+      case "hp":
+        this.statsHp = this.pokemon.stats[i].base_stat;
+        break;
+      case "attack":
+        this.statsAttack = this.pokemon.stats[i].base_stat;
+        break;
+      case "defense":
+        this.statsDef = this.pokemon.stats[i].base_stat;
+        break;
+      case "speed":
+        this.statsSpeed = this.pokemon.stats[i].base_stat;
+        break;
+    }
+  }
+
+}
   //ARRUMAR GRÁFICO 
   //VER TRADUÇÃO
   // ARRUMAR BOTÕES DO SLIDER

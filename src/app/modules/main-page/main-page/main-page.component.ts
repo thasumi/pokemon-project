@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { forkJoin, Observable, map} from 'rxjs';
 import { IPokemon } from 'src/app/shared/models/pokemonModel';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main-page',
@@ -14,8 +15,10 @@ export class MainPageComponent implements OnInit {
   lowerInterval: number = 1;
   showSpinner: boolean = false;
   pokemonList: IPokemon[] = [];
-  constructor(private pokeService: PokemonService) {
-    this.pokeService.getlag();
+  constructor(
+    private pokeService: PokemonService,
+    private translate: TranslateService) {
+    this.pokeService.getlag
   }
 
   ngOnInit(): void {
@@ -47,5 +50,9 @@ export class MainPageComponent implements OnInit {
       this.pokemonList = result;
       this.showSpinner = false;
     })
+  }
+
+  teste() {
+    this.translate.setDefaultLang('en');
   }
 }

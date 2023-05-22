@@ -1,4 +1,5 @@
 <div class="container-main">
+    <button (click)="teste()">clique </button>
     <div class="flex-space-start">
         <div class="tittle-search-container">
             <p class="tittle-main-page-container text-blue tittle-main-style">
@@ -14,16 +15,16 @@
 
         </div>
         <div>
-            <img src="/assets/images/pokemon-faces.svg" class="pokemon-face-img">
+            <img src="/assets/images/pokemon-faces.svg">
         </div>
     </div>
     <div class="pokeball-spinner" *ngIf="showSpinner">
         <div class="pokeball"></div>
     </div>
     <div class="card-grid" *ngIf="!showSpinner">
-        <div class="flex-space-end">
+        <div class="flex-space">
             <div class="text-blue medium">Pokedéx</div>
-            <div>
+            <div class="flex-space-end">
                 <img class="pointer arrow-button" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemon()">
                 <img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemon()">
             </div>

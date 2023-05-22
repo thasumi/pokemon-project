@@ -25,14 +25,16 @@ export interface IPokemonDetails {
             name: string;
         }
     }];
-    stats:[{
-        base_stat: number;
-        stat:{
-            name: string;
-        }
-    }];
+    stats:Stats[];
     sprites: ISprite;
     height: number;
     weight: number;
 
+}
+
+export interface Stats {
+    base_stat: number;
+        "stat":{
+            name: string;
+        }
 }

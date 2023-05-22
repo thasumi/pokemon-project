@@ -4,7 +4,7 @@
 }
 
 .information-container {
-    width: 50%;
+    width: 40%;
 }
 
 .margin-bottom {
@@ -37,7 +37,7 @@
 }
 
 .img-details-container {
-    width: 50%;
+    width: 60%;
     text-align: center;
 }
 
@@ -47,31 +47,60 @@
     align-items: center;
 }
 
-.progress,
 .progress-bar {
     box-shadow: none;
-    min-height: 21px;
+    height: 21px;
     display: flex;
     font-size: 0.8rem;
     flex-direction: row;
     align-items: center;
     background: black;
     border-radius: 2px;
+    width: 100%;
+
+    &.hp {
+        background-color: #C4F789
+    }
+
+    &.speed {
+        background-color: #F7802A
+    }
+
+    &.attack {
+        background-color: #49D0B0
+    }
+
+    &.defense {
+        background-color: #EA686D
+    }
 }
 
-.progress-bar {
-    padding: 2px 10px;
-    background-color: blue;
+.progress {
+    background-color: white;
+    height: 100%;
+    border-radius: 2px;
+    width: 60%;
+
+}
+
+.progress-bar-container {
+    row-gap: 20px;
+    display: inherit;
 }
 
 .display-flex {
     display: flex;
 }
 
-.status-container {
-    width: 10%;
+.stats-grid {
+    display: grid;
+    grid-template-columns: 20% 50%;
+    align-items: center;
 }
 
-.status-bar-container {
-    width: 30%;
+
+.stats-display-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }

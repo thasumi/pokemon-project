@@ -16,9 +16,10 @@ export class PokemonService {
     return this.http.get<IPokemon[]>(`https://pokeapi.co/api/v2/pokemon/${id}/`);
   }
 
-  getAll() {
-    this.http.get('https://pokeapi.co/api/v2/pokemon').subscribe(res => console.log(res))
+  getPokemonByName(name: string) {
+    return this.http.get<IPokemon>(`https://pokeapi.co/api/v2/pokemon/${name}/`);
   }
+
 
   setSelectedPokemon(pokemon: IPokemon) {
     this.pokemon$.next(pokemon);
@@ -34,7 +35,7 @@ export class PokemonService {
     console.log(res)
    })
 
-   this.http.get('https://pokeapi.co/api/v2/type/').subscribe(res => {
+   this.http.get('https://pokeapi.co/api/v2/language/9').subscribe(res => {
     console.log(res);
    })
  
