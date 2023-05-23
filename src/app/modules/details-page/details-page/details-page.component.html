@@ -12,22 +12,22 @@
                                                 titlecase}}</span>
                                 </div>
                         </div>
+                        <div *ngIf="mobile" class="img-details-container">
+                                <img class="elipse-image" src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+                        </div>
                         <div class="text-blue small margin-bottom-small ">
                                 Descrição
                         </div>
-                        <div class="text-blue-simple extra-small-weigth600 margin-bottom">Charmeleon destrói seus
-                                oponentes sem
-                                pena com suas
-                                garras
-                                afiadas. Torna-se agressivo quando encontra um oponente forte e então a chama na ponta
-                                da sua
-                                cauda
-                                queima intensamente em uma cor azulada."
+                        <div *ngIf="!notFoundMessage" class="text-blue-simple extra-small-weigth600 margin-bottom">
+                                {{description}}
+                        </div>
+                        <div *ngIf="notFoundMessage" class="text-blue-simple extra-small-weigth600 margin-bottom">
+                                {{'Não há descrição disponível para este Pokemon na língua atual.'| translate}}
                         </div>
                         <div class="text-blue small margin-bottom-small ">
                                 Informações
                         </div>
-                        <div class="flex-space-between">
+                        <div class="flex-space-between-info">
                                 <div class="text-blue-simple extra-medium-weigth600-18px">
                                         Altura:
                                 </div>
@@ -35,7 +35,7 @@
                                         {{pokemon?.height! * 10}}cm
                                 </div>
                         </div>
-                        <div class="flex-space-between">
+                        <div class="flex-space-between-info">
                                 <div class="text-blue-simple extra-medium-weigth600-18px">
                                         Peso:
                                 </div>
@@ -43,7 +43,7 @@
                                         {{pokemon?.weight! / 10}}kg
                                 </div>
                         </div>
-                        <div class="test">
+                        <div>
                                 <div class="stats-grid">
                                         <div class="stats-display-column">
                                                 <span class="text-blue-simple extra-small-weigth600">
@@ -76,8 +76,7 @@
                                 </div>
                         </div>
                 </div>
-
-                <div class="img-details-container">
+                <div *ngIf="!mobile" class="img-details-container">
                         <img class="elipse-image" src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
                 </div>
         </div>
