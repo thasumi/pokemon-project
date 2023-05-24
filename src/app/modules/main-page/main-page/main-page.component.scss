@@ -92,11 +92,6 @@
   }
 }
 
-.pokemon-faces {
-  position: relative;
-  display: inline-block;
-}
-
 .flex-space-start {
   display: flex;
   flex-direction: row;
@@ -128,54 +123,5 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-  }
-}
-
-
-.pokeball-spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.pokeball {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: red;
-  position: relative;
-  animation: spin 2s linear infinite;
-}
-
-.pokeball:before,
-.pokeball:after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: white;
-}
-
-.pokeball:before {
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-}
-
-.pokeball:after {
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
   }
 }

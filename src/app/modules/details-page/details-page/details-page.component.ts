@@ -1,6 +1,8 @@
 import { Component, HostListener, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { FlavorResponseInterface, IPokemon, IPokemonDetails } from 'src/app/shared/models/pokemonModel';
 
 @Component({
@@ -11,11 +13,14 @@ import { FlavorResponseInterface, IPokemon, IPokemonDetails } from 'src/app/shar
 
 export class DetailsPageComponent {
 
+  //listener for the resize screen
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.screenWidth = window.innerWidth;
     this.isMobile();
   }
+
+  //get current screen Width
   screenWidth = this.renderer.parentNode(window.innerWidth);
 
   id: number = 0;
@@ -26,19 +31,23 @@ export class DetailsPageComponent {
   statsDef: number = 0;
   mobile: boolean = false;
   flavorResponse: FlavorResponseInterface[] = [];
-  currentLang: string = 'en';
+  currentLang: string = '';
   description: string = '';
   notFoundMessage: boolean = false;
 
   constructor(
     private pokeService: PokemonService,
     private route: ActivatedRoute,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private translate: TranslateService,
+    private spinner: SpinnerService
   ) {
-
+    this.currentLang = this.translate.currentLang;
+    this.translate.use(this.currentLang);
   }
 
   ngOnInit(): void {
+    this.spinner.showSpinner();
     this.screenWidth = window.innerWidth;
     this.isMobile();
     this.id = this.route.snapshot.params['id'];
@@ -49,6 +58,7 @@ export class DetailsPageComponent {
     this.pokeService.getPokemonDescription(this.id, this.currentLang).subscribe({
       next: (res) => {
         this.flavorResponse = res;
+        this.spinner.hideSpinner();
         if (!this.flavorResponse.length) {
           this.notFoundMessage = true;
           return;

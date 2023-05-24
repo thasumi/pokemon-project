@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormControlName } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
@@ -10,16 +11,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
 
-
   constructor(private router: Router,
-    private translateService: TranslateService) {
+    private translateService: TranslateService,
+    private location: Location
+  ) {
 
   }
 
   ngOnInit(): void {
-    console.log(this.translateService.currentLang)
-    
-
   }
 
   redirectHome() {
@@ -27,9 +26,15 @@ export class HeaderComponent {
   }
 
   changeLang(lang: string) {
-  
+    if (lang === this.translateService.currentLang) {
+      this.translateService.use(lang);
+      return;
+    }
+    const currentUrl = this.location.path();
     this.translateService.use(lang);
-    console.log(this.translateService.currentLang)
 
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(currentUrl);
+    });
   }
 }

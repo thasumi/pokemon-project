@@ -5,6 +5,7 @@ import { IPokemon } from '../../models/pokemonModel';
 import { catchError, filter } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
+import { SpinnerService } from 'src/app/services/spinner.service';
 
 
 @Component({
@@ -20,22 +21,26 @@ export class SearchBarComponent {
   constructor(
     private router: Router,
     private pokeService: PokemonService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private spinner: SpinnerService
 
   ) {
 
   }
 
   search() {
+    this.spinner.showSpinner();
     let search = (document.getElementById("search") as HTMLInputElement).value
     this.pokeService.getPokemonByName(search.toLowerCase()).subscribe({
       next: (res) => {
         this.pokemon = res;
         this.router.navigate(['/details', this.pokemon.id]);
+        this.spinner.hideSpinner();
       },
       error: (e) => {
         console.log(e);
         this.notFoundMessage = true;
+        this.spinner.hideSpinner();
       }
     })
   }

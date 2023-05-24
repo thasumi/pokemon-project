@@ -4,13 +4,15 @@ import { BaseCardComponent } from './components/base-card/base-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
 @NgModule({
   declarations: [
     BaseCardComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BaseCardComponent,
     SearchBarComponent,
     TranslateModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
