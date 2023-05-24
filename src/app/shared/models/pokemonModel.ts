@@ -38,3 +38,10 @@ export interface Stats {
             name: string;
         }
 }
+
+export interface FlavorResponseInterface{
+    flavor_text: string;
+    language: {
+        name:string;
+    }
+}

@@ -79,8 +79,14 @@ body {
         font-weight: 600;
         line-height: 25px;
     }
+}
 
-
+.error-text {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-size: 16px;
+    color: red;
+    margin-top: 2%;
 }
 
 .button {
@@ -198,7 +204,7 @@ body {
 
     ;
 
-    &.eletric {
+    &.electric {
         background: #F8D030;
     }
 

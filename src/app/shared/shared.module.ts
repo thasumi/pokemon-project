@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BaseCardComponent } from './components/base-card/base-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -18,7 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
   exports: [
     BaseCardComponent,
     SearchBarComponent,
-    TranslateModule
+    TranslateModule,
+    InfiniteScrollModule
   ]
 })
 export class SharedModule { }

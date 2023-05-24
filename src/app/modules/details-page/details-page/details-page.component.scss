@@ -5,15 +5,35 @@
 
 .information-container {
     width: 40%;
+
+    @media only screen and (max-width: 992px) {
+        width: 100%;
+    }
 }
 
 .margin-bottom {
     margin-bottom: 5%;
 }
 
+
 .flex-space-between {
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width: 992px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.flex-space-between-info {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 992px) {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .margin-bottom-small {
@@ -24,6 +44,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: 992px) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
 }
 
 .margin-left {
@@ -34,17 +60,26 @@
     box-sizing: border-box;
     border: 1px solid white;
     border-radius: 50%;
+
+    @media only screen and (max-width: 992px) {
+        width: 100%;
+    }
 }
 
 .img-details-container {
     width: 60%;
     text-align: center;
+
+    @media only screen and (max-width: 992px) {
+        width: 100%;
+    }
 }
 
 .details-info-image-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
 }
 
 .progress-bar {
@@ -80,7 +115,12 @@
     height: 100%;
     border-radius: 2px;
     width: 60%;
-
+    @media only screen and (max-width: 992px) {
+        background-color: white;
+        height: 100%;
+        border-radius: 2px;
+        width: 100%;
+    }
 }
 
 .progress-bar-container {
@@ -96,6 +136,13 @@
     display: grid;
     grid-template-columns: 20% 50%;
     align-items: center;
+
+    @media only screen and (max-width: 992px) {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 25% 75%;
+        margin-top: 7%;
+    }
 }
 
 

@@ -3,5 +3,5 @@
     <span class="search-button button pointer" (click)="search()">
             {{'Buscar' | translate }}
     </span>
-    <div *ngIf="notFoundMessage"> teste </div>
 </div>
+<div class="error-text" *ngIf="notFoundMessage"> {{'Pokémon não encontrado!' | translate}} </div>

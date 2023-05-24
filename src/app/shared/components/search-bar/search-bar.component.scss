@@ -13,8 +13,11 @@
 .search-button {
     width: 108px;
     height: 43px;
-    left: 409px;
-    top: 343px;
+
+    @media only screen and (max-width: 992px) {
+        margin-top: 3%;
+        margin-bottom: 8%;
+    }
 }
 
 input[type=text] {
@@ -27,4 +30,10 @@ input[type=text] {
     font-size: 25px;
     outline: none;
 
-  }
+    @media only screen and (max-width: 992px) {
+        width: 70%;
+        margin-top: 3%;
+        margin-bottom: 8%;
+    }
+
+}

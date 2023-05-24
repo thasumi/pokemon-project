@@ -1,69 +1,111 @@
 .container-main {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+ }
 }
 
 .card-grid {
-    justify-content: center;
-    display: grid;
-    grid-template-columns: 18% 18% 18% 18% 18%;
-    column-gap: 32px;
-    row-gap: 23px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 18% 18% 18% 18% 18%;
+  column-gap: 32px;
+  row-gap: 23px;
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .card-grid div {
-    grid-row: 1;
-    grid-column: 1/-1;
+  grid-row: 1;
+  grid-column: 1/-1;
 }
 
 .tittle-main-page-container {
-    width: 70%;
-    margin-left: 13%;
-    margin-top: 0;
-    margin-bottom: 4%
+  width: 70%;
+  margin-left: 13%;
+  margin-top: 0;
+  margin-bottom: 4%;
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .subtittle-main-page-container {
-    margin-left: 13%;
-    margin-top: 0;
-    margin-bottom: 4%;
+  margin-left: 13%;
+  margin-top: 0;
+  margin-bottom: 4%;
+  @media only screen and (max-width: 992px) {
+    margin: 4% 0 0 0;
+    font-size: 16px;
+  }
 }
 
 .tittle-main-style {
-    font-size: 55px;
-    font-weight: 700;
-    line-height: 60px;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 60px;
+  @media only screen and (max-width: 992px) {
+    font-size:35px;
+    line-height: 39px;
+  }
 }
 
 .red-word {
-    color: #EA686D
+  color: #EA686D
 }
 
 .search-container {
-    width: 100%;
-    margin-left: 13%;
-    margin-bottom: 6%
+  width: 100%;
+  margin-left: 13%;
+  margin-bottom: 6%;
+  @media only screen and (max-width: 992px) {
+    margin: 5% 0 8% 0;
+  }
+  
 }
 
-.tittle-search-container{
-    width: 40%;
+.tittle-search-container {
+  width: 40%;
+
+  @media only screen and (max-width: 992px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 
 .pokemon-face-img {
-    width: 110%;
+  width: 110%;
+  @media only screen and (max-width: 992px) {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+  }
 }
 
 .pokemon-faces {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .flex-space-start {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  @media only screen and (max-width: 992px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .flex-space-end {
@@ -71,58 +113,69 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 .flex-space {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (max-width: 992px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
 
 
 .pokeball-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.pokeball {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: red;
+  position: relative;
+  animation: spin 2s linear infinite;
+}
+
+.pokeball:before,
+.pokeball:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.pokeball:before {
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.pokeball:after {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
   }
-  
-  .pokeball {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: red;
-    position: relative;
-    animation: spin 2s linear infinite;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .pokeball:before,
-  .pokeball:after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: white;
-  }
-  
-  .pokeball:before {
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-  
-  .pokeball:after {
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}

@@ -29,15 +29,10 @@ export class PokemonService {
     return this.pokemon$.value;
   }
 
-  getlag() {
-   this.http.get('https://pokeapi.co/api/v2/pokemon-species/5').pipe(map((pokemon: any) => pokemon.flavor_text_entries
-   .filter((entry:any) => entry.language.name === 'pt-BR'))).subscribe(res => {
-    console.log(res)
-   })
-
-   this.http.get('https://pokeapi.co/api/v2/language/9').subscribe(res => {
-    console.log(res);
-   })
- 
+  getPokemonDescription(id: number,lang: string) {
+   return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`).pipe(map((pokemon: any) => pokemon.flavor_text_entries
+   .filter((entry:any) => entry.language.name === lang)))
   }
+
+  
 }

@@ -18,7 +18,6 @@ export class BaseCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.pokemon);
   }
 
   pokemonDetails(id: number) {

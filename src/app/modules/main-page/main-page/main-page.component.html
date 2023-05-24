@@ -1,35 +1,51 @@
 <div class="container-main">
-    <button (click)="teste()">clique </button>
-    <div class="flex-space-start">
-        <div class="tittle-search-container">
-            <p class="tittle-main-page-container text-blue tittle-main-style">
-                Explore o mundo dos
-                <span class="red-word">Pokémons</span>
-            </p>
-            <p class="subtittle-main-page-container text-blue small">
-                Descubra todas as espécies de Pokémons
-            </p>
-            <div class="search-container">
-                <app-search-bar></app-search-bar>
+    <div>
+        <div class="flex-space-start">
+            <div class="tittle-search-container">
+                <p class="tittle-main-page-container text-blue tittle-main-style">
+                    Explore o mundo dos
+                    <span class="red-word">Pokémons</span>
+                </p>
+                <p class="subtittle-main-page-container text-blue small">
+                    Descubra todas as espécies de Pokémons
+                </p>
+                <div class="search-container">
+                    <app-search-bar></app-search-bar>
+                </div>
             </div>
-
-        </div>
-        <div>
-            <img src="/assets/images/pokemon-faces.svg">
-        </div>
-    </div>
-    <div class="pokeball-spinner" *ngIf="showSpinner">
-        <div class="pokeball"></div>
-    </div>
-    <div class="card-grid" *ngIf="!showSpinner">
-        <div class="flex-space">
-            <div class="text-blue medium">Pokedéx</div>
-            <div class="flex-space-end">
-                <img class="pointer arrow-button" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemon()">
-                <img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemon()">
+            <div>
+                <img class="pokemon-face-img" src="/assets/images/pokemon-faces.svg">
             </div>
         </div>
-        <app-base-card *ngFor="let pokemon of pokemonList" [pokemon]="pokemon">
-        </app-base-card>
+        <div class="pokeball-spinner" *ngIf="showSpinner">
+            <div class="pokeball"></div>
+        </div>
+        <div *ngIf="isScrollEnabled" infiniteScroll   [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+            <div class="card-grid" *ngIf="!showSpinner">
+                <div class="flex-space">
+                    <div class="text-blue medium">Pokedéx</div>
+                    <div class="flex-space-end">
+                        <img class="pointer" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemonWeb()">
+                        <img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemonWeb()">
+                    </div>
+                </div>
+                <app-base-card *ngFor="let pokemon of pokemonList" [pokemon]="pokemon">
+                </app-base-card>
+            </div>
+        </div>
+        <div *ngIf="!isScrollEnabled">
+            <div class="card-grid" *ngIf="!showSpinner">
+                <div class="flex-space">
+                    <div class="text-blue medium">Pokedéx</div>
+                    <div class="flex-space-end">
+                        <img class="pointer" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemonWeb()">
+                        <img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemonWeb()">
+                    </div>
+                </div>
+                <app-base-card *ngFor="let pokemon of pokemonList" [pokemon]="pokemon">
+                </app-base-card>
+            </div>
+        </div>
     </div>
 </div>

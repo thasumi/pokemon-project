@@ -1,3 +1,13 @@
 <div class="container-flex">
-    <img class="header-image "src="/assets/images/logo.svg">
+    <div>
+        <img class="header-image pointer" src="/assets/images/logo.svg" (click)="redirectHome()">
+    </div>
+    <div class="flag-container"> 
+        <div class="flags">
+            <img class="pointer" (click)="changeLang('en')" src="/assets/images/united-states-flag-icon.svg">
+        </div>
+        <div class="flags">
+            <img class="pointer" (click)="changeLang('pt-br')" src="/assets/images/brazil-flag-icon.svg">
+        </div>
+    </div>
 </div>
