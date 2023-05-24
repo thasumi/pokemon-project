@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { SpinnerComponent } from './shared/components/spinner/spinner.component';
-import { SpinnerService } from './services/spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +8,16 @@ import { SpinnerService } from './services/spinner.service';
 })
 export class AppComponent {
   title = 'pokemon-project';
-  spinner: boolean = false;
+  lang: string = 'pt-br';
 
-  constructor(private translate: TranslateService,
-    private spinnerService: SpinnerService) {
+  constructor(private translate: TranslateService) {
 
-    translate.setDefaultLang('pt-br');
-    translate.use('pt-br');
-    this.spinner = this.spinnerService.isVisible();
+    translate.setDefaultLang(this.lang);
+    translate.use(this.lang);
   }
+
+  ngOnInit(): void {
+  }
+
+  
 }

@@ -1,11 +1,14 @@
 <div class="container-main">
         <div class="details-info-image-container ">
+                <div class=previous-buttom-details *ngIf="!mobile"> <img class="pointer" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemonWeb((pokemon?.id! - 1))">
+                </div>
                 <div class="information-container">
                         <div class="text-blue medium-large margin-bottom">{{pokemon?.name | titlecase}}</div>
                         <div class="margin-bottom flex-space-between">
                                 <div class="text-blue-simple extra-small-weigth400-22px">Cod: #{{pokemon?.id}}</div>
                                 <div class="type-container">
-                                        <span class="text-blue-simple extra-small-weigth400-22px margin-left">{{'Tipo:'|
+                                        <span class="text-blue-simple extra-small-weigth400-22px
+                                        ">{{'Tipo:'|
                                                 translate}}
                                         </span>
                                         <span class="type-tag margin-left" [ngClass]="[type.type.name]"
@@ -16,6 +19,7 @@
                         <div *ngIf="mobile" class="img-details-container">
                                 <img class="elipse-image"
                                         src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+
                         </div>
                         <div class="text-blue small margin-bottom-small ">
                                 {{'Descrição' | translate}}
@@ -52,7 +56,7 @@
                                                         {{'Vida' | translate}}
                                                 </span>
                                                 <span class="text-blue-simple extra-small-weigth600">
-                                                        {{'Defesa'  | translate}}
+                                                        {{'Defesa' | translate}}
                                                 </span>
                                                 <span class="text-blue-simple extra-small-weigth600 ">
                                                         {{'Velocidade' | translate}}
@@ -86,6 +90,8 @@
                 </div>
                 <div *ngIf="!mobile" class="img-details-container">
                         <img class="elipse-image" src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+                        <div><img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemonWeb((pokemon?.id!)+1)">
+                        </div>
                 </div>
         </div>
 </div>

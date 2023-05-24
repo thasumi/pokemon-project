@@ -1,8 +1,7 @@
 import { Component, HostListener, Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { SpinnerService } from 'src/app/services/spinner.service';
 import { FlavorResponseInterface, IPokemon, IPokemonDetails } from 'src/app/shared/models/pokemonModel';
 
 @Component({
@@ -40,14 +39,13 @@ export class DetailsPageComponent {
     private route: ActivatedRoute,
     private renderer: Renderer2,
     private translate: TranslateService,
-    private spinner: SpinnerService
+    private router: Router
   ) {
     this.currentLang = this.translate.currentLang;
     this.translate.use(this.currentLang);
   }
 
   ngOnInit(): void {
-    this.spinner.showSpinner();
     this.screenWidth = window.innerWidth;
     this.isMobile();
     this.id = this.route.snapshot.params['id'];
@@ -58,7 +56,6 @@ export class DetailsPageComponent {
     this.pokeService.getPokemonDescription(this.id, this.currentLang).subscribe({
       next: (res) => {
         this.flavorResponse = res;
-        this.spinner.hideSpinner();
         if (!this.flavorResponse.length) {
           this.notFoundMessage = true;
           return;
@@ -66,7 +63,6 @@ export class DetailsPageComponent {
         this.description = this.flavorResponse.at(-1)!.flavor_text;
       },
       error: (e) => {
-        console.log(e);
         this.notFoundMessage = true;
       }
     })
@@ -74,7 +70,6 @@ export class DetailsPageComponent {
 
   isMobile() {
     this.screenWidth = window.innerWidth;
-    console.log(this.screenWidth)
     if (this.screenWidth <= 992) {
       this.mobile = true;
       return
@@ -99,8 +94,20 @@ export class DetailsPageComponent {
           break;
       }
     }
-
   }
+
+  getNextPokemonWeb(next:number) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl('/details/' + next);
+    });
+  }
+
+  getPreviousPokemonWeb(previous:number) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl('/details/' + previous);
+    });
+  }
+
 
 }
 

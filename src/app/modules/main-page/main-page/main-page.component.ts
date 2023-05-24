@@ -3,7 +3,6 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 import { forkJoin, Observable, map } from 'rxjs';
 import { IPokemon } from 'src/app/shared/models/pokemonModel';
 import { TranslateService } from '@ngx-translate/core';
-import { SpinnerService } from 'src/app/services/spinner.service';
 
 @Component({
   selector: 'app-main-page',
@@ -33,8 +32,7 @@ export class MainPageComponent implements OnInit {
   constructor(
     private pokeService: PokemonService,
     private translate: TranslateService,
-    private renderer: Renderer2,
-    private spinner: SpinnerService) {
+    private renderer: Renderer2) {
   }
 
 
@@ -74,7 +72,6 @@ export class MainPageComponent implements OnInit {
   }
 
   createPokemonListWeb() {
-    this.spinner.showSpinner();
     this.pokemonList$ = [];
     for (let i = this.lowerIntervalWeb; i < this.lowerIntervalWeb + 10; i++) {
       this.pokemonList$.push(this.pokeService.getPokemon(i));
@@ -83,12 +80,10 @@ export class MainPageComponent implements OnInit {
       map(response => response.reduce((all, item) => all.concat(item), []))
     ).subscribe(result => {
       this.pokemonList = result;
-      this.spinner.hideSpinner();
     })
   }
 
   createPokemonListMobile() {
-    this.spinner.showSpinner();
     for (let i = this.lowerIntervalMobile; i < this.lastIntervalMobile; i++) {
       this.pokemonList$.push(this.pokeService.getPokemon(i));
     }
@@ -96,7 +91,6 @@ export class MainPageComponent implements OnInit {
       map(response => response.reduce((all, item) => all.concat(item), []))
     ).subscribe(result => {
       this.pokemonList = result;
-      this.spinner.hideSpinner();
     })
   }
 

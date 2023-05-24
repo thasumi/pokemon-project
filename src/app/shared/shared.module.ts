@@ -4,7 +4,7 @@ import { BaseCardComponent } from './components/base-card/base-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+
 
 
 
@@ -12,7 +12,6 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   declarations: [
     BaseCardComponent,
     SearchBarComponent,
-    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +21,6 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     BaseCardComponent,
     SearchBarComponent,
     TranslateModule,
-    InfiniteScrollModule,
-    SpinnerComponent
-  ]
+    InfiniteScrollModule  ]
 })
 export class SharedModule { }

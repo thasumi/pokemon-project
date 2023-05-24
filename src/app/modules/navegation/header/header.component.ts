@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent {
 
+  currentlyLang: string = '';
   constructor(private router: Router,
     private translateService: TranslateService,
     private location: Location
@@ -27,14 +28,13 @@ export class HeaderComponent {
 
   changeLang(lang: string) {
     if (lang === this.translateService.currentLang) {
-      this.translateService.use(lang);
       return;
     }
     const currentUrl = this.location.path();
-    this.translateService.use(lang);
-
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigateByUrl(currentUrl);
+    this.translateService.use(lang).subscribe(() => {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl(currentUrl);
+      });
     });
   }
 }
