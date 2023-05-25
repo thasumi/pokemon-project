@@ -1,0 +1,34 @@
+.card-container {
+    max-width: 100%;
+    background-color: white;  
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    @media only screen and (max-width: 992px) {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.base-card{
+    padding: 15px 15px;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.margin-bottom {
+    margin-bottom: 1%;
+}
+
+.card-image {
+    text-align: center;
+}
+
+.header-image {
+    width: 45%;
+}
+

@@ -1,0 +1,19 @@
+<div class="card-container pointer" (click)="pokemonDetails(pokemon?.id!)">
+    <div class="base-card">
+        <div class="section margin-bottom">
+            <div class="text-blue small">{{pokemon?.name | titlecase }}</div>
+            <div class="text-blue-simple extra-small-weigth400 ">#{{pokemon?.id}}</div>
+        </div>
+        <div class="card-image margin-bottom">
+            <img class="header-image" src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+        </div>
+        <div class="section margin-bottom">
+            <div class="text-blue extra-small">{{'Altura:'| translate}}</div>
+            <div class="text-blue-simple extra-small-weigth600 ">{{pokemon?.height! * 10}} cm</div>
+        </div>
+        <div class="section">
+            <div class="text-blue extra-small">{{'Peso:'| translate}}</div>
+            <div class="text-blue-simple extra-small-weigth600 ">{{pokemon?.weight! / 10}} kg</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,237 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    background: linear-gradient(180deg, #EFF4FA 0%, rgba(239, 244, 250, 0) 102.84%);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.text-blue {
+    font-family: 'Nunito';
+    font-style: normal;
+    color: #2F3E77;
+
+    &.small {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    &.extra-small {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+    }
+
+    &.medium {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    &.medium-large {
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 48px;
+    }
+
+    &.large {
+        font-size: 55px;
+        font-weight: 700;
+        line-height: 60px;
+    }
+}
+
+.text-blue-simple {
+    font-family: 'Nunito';
+    font-style: normal;
+    color: #2F3E77;
+
+    &.small {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 30px;
+    }
+
+    &.extra-small-weigth600 {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+    }
+
+    &.extra-small-weigth400 {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+    }
+
+    &.extra-small-weigth400-22px {
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    &.extra-medium-weigth600-18px {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25px;
+    }
+}
+
+.error-text {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-size: 16px;
+    color: red;
+    margin-top: 2%;
+}
+
+.button {
+    background: #EA686D;
+    box-shadow: 0px 4px 15px #EA686D;
+    border-radius: 0px 5px 5px 0px;
+    font-family: 'Nunito';
+    font-style: normal;
+    line-height: 30px;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.pointer {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.type-tag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 97px;
+    min-height: 35px;
+    border-radius: 2px;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+
+    &.fire {
+        background: #F7802A;
+    }
+
+    ;
+
+    &.ghost {
+        background: #705898;
+    }
+
+    ;
+
+    &.grass {
+        background: #78C850;
+    }
+
+    ;
+
+    &.ice {
+        background: #98D8D8;
+    }
+
+    ;
+
+    &.normal {
+        background: #A8A878;
+    }
+
+    ;
+
+    &.poison {
+        background: #A040A0;
+    }
+
+    ;
+
+    &.psychic {
+        background: #F85888;
+    }
+
+    ;
+
+    &.rock {
+        background: #B8A038;
+    }
+
+    ;
+
+    &.steel {
+        background: #B8B8D0;
+    }
+
+    ;
+
+    &.water {
+        background: #6890F0;
+    }
+
+    ;
+
+    &.bug {
+        background: #A8B820;
+    }
+
+    ;
+
+    &.dark {
+        background: #705848;
+    }
+
+    ;
+
+    &.dragon {
+        background: #7038F8;
+    }
+
+    ;
+
+    &.electric {
+        background: #F8D030;
+    }
+
+    ;
+
+    &.fairy {
+        background: #EE99AC;
+    }
+
+    ;
+
+    &.fighting {
+        background: #C03028;
+    }
+
+    ;
+
+    &.flying {
+        background: #A890F0;
+    }
+
+    ;
+
+    &.ground {
+        background: #E0C068;
+    }
+
+    ;
+
+}

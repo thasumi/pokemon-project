@@ -1,0 +1,97 @@
+<div class="container-main">
+        <div class="details-info-image-container ">
+                <div class=previous-buttom-details *ngIf="!mobile"> <img class="pointer" src="/assets/images/arrow-left.svg" (click)="getPreviousPokemonWeb((pokemon?.id! - 1))">
+                </div>
+                <div class="information-container">
+                        <div class="text-blue medium-large margin-bottom">{{pokemon?.name | titlecase}}</div>
+                        <div class="margin-bottom flex-space-between">
+                                <div class="text-blue-simple extra-small-weigth400-22px">Cod: #{{pokemon?.id}}</div>
+                                <div class="type-container">
+                                        <span class="text-blue-simple extra-small-weigth400-22px
+                                        ">{{'Tipo:'|
+                                                translate}}
+                                        </span>
+                                        <span class="type-tag margin-left" [ngClass]="[type.type.name]"
+                                                *ngFor="let type of pokemon?.types">{{type.type.name | translate |
+                                                titlecase}}</span>
+                                </div>
+                        </div>
+                        <div *ngIf="mobile" class="img-details-container">
+                                <img class="elipse-image"
+                                        src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+
+                        </div>
+                        <div class="text-blue small margin-bottom-small ">
+                                {{'Descrição' | translate}}
+                        </div>
+                        <div *ngIf="!notFoundMessage" class="text-blue-simple extra-small-weigth600 margin-bottom">
+                                {{description}}
+                        </div>
+                        <div *ngIf="notFoundMessage" class="text-blue-simple extra-small-weigth600 margin-bottom">
+                                {{'Não há descrição disponível para este Pokemon na língua atual.'| translate}}
+                        </div>
+                        <div class="text-blue small margin-bottom-small ">
+                                {{'Informações'| translate}}
+                        </div>
+                        <div class="flex-space-between-info">
+                                <div class="text-blue-simple extra-medium-weigth600-18px">
+                                        {{'Altura:' | translate}}
+                                </div>
+                                <div class="text-blue-simple extra-medium-weigth600-18px">
+                                        {{pokemon?.height! * 10}}cm
+                                </div>
+                        </div>
+                        <div class="flex-space-between-info">
+                                <div class="text-blue-simple extra-medium-weigth600-18px">
+                                        {{'Peso:'| translate}}
+                                </div>
+                                <div class="text-blue-simple extra-medium-weigth600-18px margin-bottom">
+                                        {{pokemon?.weight! / 10}}kg
+                                </div>
+                        </div>
+                        <div>
+                                <div class="stats-grid">
+                                        <div class="stats-display-column">
+                                                <span class="text-blue-simple extra-small-weigth600">
+                                                        {{'Vida' | translate}}
+                                                </span>
+                                                <span class="text-blue-simple extra-small-weigth600">
+                                                        {{'Defesa' | translate}}
+                                                </span>
+                                                <span class="text-blue-simple extra-small-weigth600 ">
+                                                        {{'Velocidade' | translate}}
+                                                </span>
+                                                <span class="text-blue-simple extra-small-weigth600">
+                                                        {{'Ataque' | translate}}
+                                                </span>
+                                        </div>
+                                        <div class="progress-bar-container stats-display-column">
+                                                <div class="progress">
+                                                        <div class="progress-bar hp"
+                                                                [ngStyle]="{'width':((statsHp/255)*100) + '%'}"></div>
+                                                </div>
+                                                <div class="progress">
+                                                        <div class="progress-bar defense"
+                                                                [ngStyle]="{'width':((statsDef/230)*100) + '%'}"></div>
+                                                </div>
+                                                <div class="progress">
+                                                        <div class="progress-bar speed"
+                                                                [ngStyle]="{'width':((statsSpeed/200)*100) + '%'}">
+                                                        </div>
+                                                </div>
+                                                <div class="progress">
+                                                        <div class="progress-bar attack"
+                                                                [ngStyle]="{'width':((statsAttack/181)*100) + '%'}">
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div *ngIf="!mobile" class="img-details-container">
+                        <img class="elipse-image" src="{{pokemon?.sprites!.other['official-artwork'].front_default}}">
+                        <div><img class="pointer " src="/assets/images/arrow-right.svg" (click)="getNextPokemonWeb((pokemon?.id!)+1)">
+                        </div>
+                </div>
+        </div>
+</div>

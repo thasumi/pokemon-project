@@ -1,0 +1,21 @@
+.header-image {
+    display: flex;
+}
+
+.container-flex {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.flags {
+    width: 45px;
+    margin-left: 1%;
+}
+
+.flag-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
