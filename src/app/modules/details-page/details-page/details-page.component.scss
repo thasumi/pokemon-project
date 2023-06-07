@@ -58,7 +58,7 @@
 
 .elipse-image {
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid rgb(165, 70, 70);
     border-radius: 50%;
 
     @media only screen and (max-width: 992px) {
@@ -115,7 +115,7 @@
 }
 
 .progress {
-    background-color: white;
+    background-color: rgb(247, 240, 240);
     height: 100%;
     border-radius: 2px;
     width: 60%;
@@ -158,4 +158,12 @@
 
 .previous-buttom-details {
     margin-right: 1.5%;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 5%;
 }

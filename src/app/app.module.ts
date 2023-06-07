@@ -9,6 +9,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -19,6 +21,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
   ],
   imports: [
+    NgxSpinnerModule.forRoot({ type: 'ball-clip-rotate-multiple' }),
     BrowserModule,
     AppRoutingModule,
     NavegationModule,
@@ -26,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainPageModule,
     HttpClientModule,
     InfiniteScrollModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

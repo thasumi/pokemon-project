@@ -1,6 +1,7 @@
 import { Component, HostListener, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { FlavorResponseInterface, IPokemon, IPokemonDetails } from 'src/app/shared/models/pokemonModel';
 
@@ -39,19 +40,22 @@ export class DetailsPageComponent {
     private route: ActivatedRoute,
     private renderer: Renderer2,
     private translate: TranslateService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.currentLang = this.translate.currentLang;
     this.translate.use(this.currentLang);
   }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.screenWidth = window.innerWidth;
     this.isMobile();
     this.id = this.route.snapshot.params['id'];
     this.pokeService.getPokemon(this.id).subscribe(res => {
       this.pokemon = res as any;
       this.getStat();
+
     });
     this.pokeService.getPokemonDescription(this.id, this.currentLang).subscribe({
       next: (res) => {
@@ -67,6 +71,7 @@ export class DetailsPageComponent {
       }
     })
   }
+
 
   isMobile() {
     this.screenWidth = window.innerWidth;
@@ -94,17 +99,28 @@ export class DetailsPageComponent {
           break;
       }
     }
+    this.spinner.hide();
   }
 
-  getNextPokemonWeb(next:number) {
+  getNextPokemonWeb(next: number) {
+    this.spinner.show();
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigateByUrl('/details/' + next);
+      this.spinner.hide();
     });
   }
 
-  getPreviousPokemonWeb(previous:number) {
+  getPreviousPokemonWeb(previous: number) {
+    this.spinner.show();
+    if (previous > 0) {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/details/' + previous);
+        this.spinner.hide();
+      });
+    }
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigateByUrl('/details/' + previous);
+      this.router.navigateByUrl('/details/' + 1);
+      this.spinner.hide();
     });
   }
 

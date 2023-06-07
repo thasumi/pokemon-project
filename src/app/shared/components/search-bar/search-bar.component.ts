@@ -31,7 +31,9 @@ export class SearchBarComponent {
     this.pokeService.getPokemonByName(search.toLowerCase()).subscribe({
       next: (res) => {
         this.pokemon = res;
-        this.router.navigate(['/details', this.pokemon.id]);
+        this.router.navigateByUrl('/details', { skipLocationChange: true }).then(() => {
+          this.router.navigateByUrl('/details/' + this.pokemon.id);
+        })
       },
       error: (e) => {
         this.notFoundMessage = true;
