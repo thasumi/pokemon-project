@@ -7,7 +7,7 @@
 "Pokémon não encontrado!":"Pokémon not found!",
 "Altura:":"Height:",
 "Peso:":"Weigth:",
-"Tipo":"Type",
+"Tipo:":"Type:",
 "Não há descrição disponível para este Pokemon na língua atual.":"There is no description available in the selected language.",
 "Descrição":"Description",
 "Informações":"Informations",
@@ -33,5 +33,6 @@
 "water":"water",
 "flying": "flying",
 "404 - Ops, página não encontrada!":"404 - Whoops, page not found!",
-"Loading...": "Loading..."
+"Loading...": "Loading...",
+"Continue buscando um Pokémon": "Keep searching a Pokémon"
 }
