@@ -1,51 +1,60 @@
-# Projeto Pokémon - Pokédex
-Projeto desenvolvido com a finalidade de consultar e exibir os Pokémons existentes que estão cadastrados no banco vinculado a API Pokémon, disponível em: https://pokeapi.co/docs/v2#pokemon.
-O layout e desing foi com referência ao Layout 3 do figma: https://www.figma.com/file/L2M9yaLX0hvKGa0mPwqZhu/Processo-Seletivo?type=design&node-id=1-2&t=yKbuISAnKZrPag86-0 .
-A aplicação foi dividida em duas telas: 
-  - Tela inicial, onde há um campo de busca e uma secção onde é exibido 10 Pokémons por vez. 
-  - Tela de detalhes de um Pokémon, onde é possível visualizar mais informações de um Pokémon pesquisado, e a pesquisa encontrou um resultado, ou um Pokémon selecionado na tela inicial.
+#  Pokémon Project - Pokédex
 
-A aplicação foi adaptada para ser acessada em dispositivos móveis que tenham largura menor que 992px.
-  
-# :hammer: Funcionalidades do projeto
+This project was developed with the intent to look up and display the existing Pokemon that are registered in the database available through
+the Pokemon API: https://pokeapi.co/docs/v2#pokemon.
+The application was divided in two pages:
+ - Main page, where there is a search field and a section where 10 Pokemon are displayed in crescent order based on their IDs.
+ - Details page, where more information related to a specific Pokemon is displayed. This page is accessible when you search for Pokemon and the
+   search is successful, or whenever you click a Pokemon in the main page. In this same page it's also possible to search for Pokemon.
 
-- `Busca de um Pokémon`: Ao digitar um nome de um Pokémon valido e apertar o butão "Buscar" será feito o redirecionamento para a página de detalhes daquele Pokémon. Caso não seja encontrado, uma mensagem abaixo do campo será exibida.
-O campo de busca funciona com "-" em vez de espaços.
-O "match" tem que ser exato para encontrar um resultado, nomes parciais não são aceitos.
+:iphone: This application is responsive and supports mobile devices.
 
-- `Exibição de Pokémons`: Há uma secção onde serão exibidos em ordem de Id, 10 Pokémons por vez na versão web, e 5 na versão mobile web. 
-Na versão web,ao utilizar os botões de avançar ou voltar ao lado direito superior desta secção, irá exibir os próximos 10, ou voltar 10 Pokémons.
-Já na versão mobile, para carregar mais 5 Pokémons, é necessário scrollar a tela, o carregamento é até acabar os Pokémons, mas sempre exibindo de 5 em 5 a cada scrollada.
-
-  Nos cards exibidos é mostrado o Nome, Código, Peso, Altura e a imagem do Pokémon.
-
-- `Traduções`: A aplicação possui um serviço de tradução para inglês. Para trocar de língua é necessário clicar na badeira dos EUA no canto superior direito. Para voltar a língua portuguesa, basta apertar o a bandeira do Brasil.
-
-- `Exibição dos detalhes de um Pokémon`: Ao realizar uma busca com sucesso, ou selecionar um Pokémon da lista da Pokédex, o usuário será direcionado para a página de detalhes daquele Pokémon, onde encontrará informações de Nome, código, Descrição (quando disponível), Peso, Altura, e stats de Vida, Ataque, Velocidade e Defesa. Uma imagem em tamanho maior que do card na página principal, também é exibido.
-Nesta mesma página, é possível avançar para o próximo Pokémon, ou voltar ao anterior.
-
-# 📁 Arquitetura
-O projeto foi feito com lazy loding, já prevendo mais módulos e funcionabilidades. Assim, a aplicação carrega de forma mais rápida e dinâmica, só trazendo o que é realmente necessário para o usuário.
-Temos os seguintes módulos:
-- Main-Page: módulo da página principal, onde foi juntado vários componentes.
-- Details-Page: módulo da página de detalhes.
-- Navigate: módulo com componentes de navegação, como header, tradução, footer.
-- Shared: módulo com componentes reutilizáveis, neste caso o card, e o campo de busca.
-
-O projeto possui também uma pasta de assets, onde temos as imagens utilizadas e a pasta "i18n" com os arquivos de traduções.
-
-com estes componentes e módulos separados, tem-se a possibilidade de expandir a aplicação de forma dinâmica, rápida e de fácil entendimento.
-
-# 🔐 Acesso ao projeto
-O projeto possui configuração para rodar em Docker, sendo possível copiar a imagem rodando o seguinte comando:
-`ADD file:9a4f77dfaba7fd2aa78186e4ef0e7486ad55101cefc1fabbc1b385601bb38920 in / `
-
-# :computer: Tecnologias
-- Angular v.15.0;
+# :computer: Technologies
+- Angular v15.0
 - node v18.12.1;
 - SCSS;
 - TypeScript;
 
-libs utilizadas que não são instaladas com o Angular:
-- ngx-translate
-- ngx-infinite-scroll
+# :books: Resources Used
+- ngx-spinner - documentation: https://www.npmjs.com/package/ngx-spinner                
+- ngx-infinite-scroll - documentation: https://www.npmjs.com/package/ngx-infinite-scroll
+- ngx-translate - documentation: https://github.com/ngx-translate/core
+
+# :wrench: Environment Configuration:
+- Clone the repository
+- Install the dependencies by running npm install
+- Run ng serve command to initialize the application
+- Open the browser and navigate to http://localhost:4200
+
+# :hammer: Project Features:
+
+-  `Pokemon search`: When typing the name of a Pokemon and clicking the search button, you will be redirected to the details page related to that Pokemon.
+  If the Pokemon is not found, a message will be displayed below the search field. If the Pokemon has blank spaces in it's name, utilize a dash ("-"). The name
+  of the Pokemon has to match fully, partial names do not work.
+
+-  `Pokemon display`: There is a section where Pokemon are displayed and are ordered by ID. 10 are displayed at once when using desktop screen sizes, and 
+  5 are displayed when in mobile screen sizes. In the desktop version, when clicking the arrow buttons to the left and right of the Pokemon, it will display
+  the previous and the next 10 Pokemon, respectively. In the mobile version, to load 5 more Pokemon, simply scroll down to the end of the page. This will
+  keep loading the next 5 Pokemon every time it's performed.
+
+ - In the Pokemon cards, it is displayed the names, ID, weight, height and an image of the Pokemon.
+
+-  `Translations`: The application possesses a translation services for Portuguese and English. To switch languages, click either of the flags located at the top
+  right of the screen.
+
+# 📁 Architecture:
+  This application was developed with lazy loading, so it can easily accomodate more modules and features in the future, as well as having faster loading times
+  and lighter bundles.
+  The following modules exist:
+ - Main-Page: module of the main page,  that utilizes other  reusable components inside.
+ - Details-Page: module of the details page, that also utilizes the search component.
+ - Navigate: module with navigation components, like the header and footer.
+-  Shared: module with reusable components, which includes the Pokemon cards and the search field.
+
+The project also contains an assets folder, where the used images are stored, and the i18n folder, with the translation files.
+
+With these components and modules separated, it becomes easier to scale the application for more features and new pages.
+
+# 🔐 Access to the project:
+The project has a configuration to run inside a Docker container. To copy the image run the following command:
+`ADD file:9a4f77dfaba7fd2aa78186e4ef0e7486ad55101cefc1fabbc1b385601bb38920 in / `
