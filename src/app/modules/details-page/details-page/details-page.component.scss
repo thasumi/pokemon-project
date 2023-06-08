@@ -5,7 +5,6 @@
 
 .information-container {
     width: 40%;
-
     @media only screen and (max-width: 992px) {
         width: 100%;
     }
@@ -58,7 +57,7 @@
 
 .elipse-image {
     box-sizing: border-box;
-    border: 1px solid white;
+    border: 1px solid rgb(165, 70, 70);
     border-radius: 50%;
 
     @media only screen and (max-width: 992px) {
@@ -115,12 +114,12 @@
 }
 
 .progress {
-    background-color: white;
+    background-color: rgb(247, 240, 240);
     height: 100%;
     border-radius: 2px;
     width: 60%;
     @media only screen and (max-width: 992px) {
-        background-color: white;
+        background-color: rgb(247, 240, 240);
         height: 100%;
         border-radius: 2px;
         width: 100%;
@@ -158,4 +157,16 @@
 
 .previous-buttom-details {
     margin-right: 1.5%;
+}
+
+.search-container {
+    display: flex;
+    align-items:start;
+    justify-content:start;
+    flex-direction: column;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    @media only screen and (max-width: 992px) {
+        margin-top: 12%;
+    }
 }

@@ -3,6 +3,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 import { forkJoin, Observable, map } from 'rxjs';
 import { IPokemon } from 'src/app/shared/models/pokemonModel';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinner, NgxSpinnerService, Spinner } from 'ngx-spinner';
 
 @Component({
   selector: 'app-main-page',
@@ -13,13 +14,13 @@ export class MainPageComponent implements OnInit {
 
 
 
-    //listener for the resize screen
+  //listener for the resize screen
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.screenWidth = window.innerWidth;
     this.checkScrollEnabled();
   }
-    //get current screen Width
+  //get current screen Width
   screenWidth = this.renderer.parentNode(window.innerWidth);
 
   isScrollEnabled = false;
@@ -32,11 +33,13 @@ export class MainPageComponent implements OnInit {
   constructor(
     private pokeService: PokemonService,
     private translate: TranslateService,
+    private spinner: NgxSpinnerService,
     private renderer: Renderer2) {
   }
 
 
   ngOnInit(): void {
+    this.spinner.show();
     this.screenWidth = window.innerWidth;
     this.checkScrollEnabled();
   }
@@ -73,6 +76,7 @@ export class MainPageComponent implements OnInit {
 
   createPokemonListWeb() {
     this.pokemonList$ = [];
+    this.spinner.show();
     for (let i = this.lowerIntervalWeb; i < this.lowerIntervalWeb + 10; i++) {
       this.pokemonList$.push(this.pokeService.getPokemon(i));
     }
@@ -80,10 +84,12 @@ export class MainPageComponent implements OnInit {
       map(response => response.reduce((all, item) => all.concat(item), []))
     ).subscribe(result => {
       this.pokemonList = result;
+      this.spinner.hide();
     })
   }
 
   createPokemonListMobile() {
+    this.spinner.show();
     for (let i = this.lowerIntervalMobile; i < this.lastIntervalMobile; i++) {
       this.pokemonList$.push(this.pokeService.getPokemon(i));
     }
@@ -91,6 +97,7 @@ export class MainPageComponent implements OnInit {
       map(response => response.reduce((all, item) => all.concat(item), []))
     ).subscribe(result => {
       this.pokemonList = result;
+      this.spinner.hide();
     })
   }
 
