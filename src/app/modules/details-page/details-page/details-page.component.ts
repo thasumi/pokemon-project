@@ -34,6 +34,7 @@ export class DetailsPageComponent {
   currentLang: string = '';
   description: string = '';
   notFoundMessage: boolean = false;
+  isFirst: boolean = false;
 
   constructor(
     private pokeService: PokemonService,
@@ -51,7 +52,10 @@ export class DetailsPageComponent {
     this.spinner.show();
     this.screenWidth = window.innerWidth;
     this.isMobile();
-    this.id = this.route.snapshot.params['id'];
+    this.id = Number(this.route.snapshot.params['id']);
+    if (this.id === 1) {
+      this.isFirst = true;
+    }
     this.pokeService.getPokemon(this.id).subscribe(res => {
       this.pokemon = res as any;
       this.getStat();
@@ -112,16 +116,19 @@ export class DetailsPageComponent {
 
   getPreviousPokemonWeb(previous: number) {
     this.spinner.show();
-    if (previous > 0) {
+    if (previous >= 1) {
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.router.navigateByUrl('/details/' + previous);
         this.spinner.hide();
       });
+    } if (previous === 0) {
+      this.spinner.show();
+      this.isFirst = true;
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigateByUrl('/details/' + 1);
+        this.spinner.hide();
+      });
     }
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigateByUrl('/details/' + 1);
-      this.spinner.hide();
-    });
   }
 
 
